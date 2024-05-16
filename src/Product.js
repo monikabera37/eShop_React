@@ -1,24 +1,26 @@
 import React from 'react';
 import "./Product.css";
-import { FaStar } from "react-icons/fa";
 
 
-const Product = () => {
+const Product = ({title,image,price,rating,id}) => {
     return (
         <div className='product'>
             <div className="product_info">
-                <p>Bennett Mystic 15.6 inch Laptop Shoulder Messenger Sling Office Bag, Water Repellent Fabric for Men and Women (Blue)</p>
+                <p>{title}</p>
                 <p className='product_price'>
                     <small>$</small>
-                    <strong>11.98</strong>
+                    <strong>{price}</strong>
                 </p>
                 <div className="product_rating">
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
+                {Array(rating)
+                    .fill()
+                    .map((_, i) => (
+                        <p>⭐</p>
+                    ))}
+                    
                 </div>
             </div>
-            <img src="https://images-na.ssl-images-amazon.com/images/I/71mEsHyzSCL._SL1000_.jpg" alt='productDetails'  />
+            <img src={image} alt='productDetails'  />
             <button>Add to Basket</button>
 
         </div>
