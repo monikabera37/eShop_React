@@ -4,15 +4,19 @@ import { IoMdBasket } from "react-icons/io";
 import { MdOutlineStorefront } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { useStateValue } from './StateProvider';
 
 
 
 const Header = () => {
+    const [{ basket }, dispatch] = useStateValue();
+
+
     return (
         <div className='header'>
             {/* logo section */}
 
-            <Link to="/" style={{textDecoration:"none"}}>
+            <Link to="/" style={{ textDecoration: "none" }}>
                 <div className="header_logo">
                     <MdOutlineStorefront className='header_logoImage' />
                     <h2 className='header_logoTitle'>eShop</h2>
@@ -41,11 +45,11 @@ const Header = () => {
                 </div>
 
                 {/* checkout section */}
-                <Link to="/checkout" style={{textDecoration:"none"}}>
+                <Link to="/checkout" style={{ textDecoration: "none" }}>
                     <div className="nav_itemBasket">
                         <span className="nav_itemLineOne"><IoMdBasket className='nav_itemBasketIcon' />
                         </span>
-                        <span className="nav_itemLineTwo">0</span>
+                        <span className="nav_itemLineTwo">{basket.length}</span>
                     </div>
                 </Link>
 
