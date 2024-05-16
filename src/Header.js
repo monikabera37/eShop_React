@@ -3,6 +3,7 @@ import "./Header.css";
 import { IoMdBasket } from "react-icons/io";
 import { MdOutlineStorefront } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 
 
@@ -11,10 +12,13 @@ const Header = () => {
         <div className='header'>
             {/* logo section */}
 
-            <div className="header_logo">
-                <MdOutlineStorefront className='header_logoImage' />
-                <h2 className='header_logoTitle'>eShop</h2>
-            </div>
+            <Link to="/" style={{textDecoration:"none"}}>
+                <div className="header_logo">
+                    <MdOutlineStorefront className='header_logoImage' />
+                    <h2 className='header_logoTitle'>eShop</h2>
+                </div>
+            </Link>
+
 
             {/*  search section*/}
 
@@ -35,11 +39,16 @@ const Header = () => {
                     <span className="nav_itemLineOne">Your</span>
                     <span className="nav_itemLineTwo">Shop</span>
                 </div>
-                <div className="nav_itemBasket">
-                    <span className="nav_itemLineOne"><IoMdBasket className='nav_itemBasketIcon' />
-                    </span>
-                    <span className="nav_itemLineTwo">0</span>
-                </div>
+
+                {/* checkout section */}
+                <Link to="/checkout" style={{textDecoration:"none"}}>
+                    <div className="nav_itemBasket">
+                        <span className="nav_itemLineOne"><IoMdBasket className='nav_itemBasketIcon' />
+                        </span>
+                        <span className="nav_itemLineTwo">0</span>
+                    </div>
+                </Link>
+
             </div>
 
         </div>
